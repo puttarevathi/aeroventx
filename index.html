@@ -16,463 +16,351 @@
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:black;
-    color:white;
+font-family:'Poppins',sans-serif;
+background:black;
+color:white;
 }
 
 /* HEADER */
 
 header{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-
-    z-index:1000;
-
-    background:rgba(0,0,0,0.45);
-
-    backdrop-filter:blur(10px);
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(10px);
 }
 
 nav{
-
-    width:92%;
-
-    margin:auto;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:25px 0;
+width:92%;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 0;
 }
 
 /* LOGO */
 
 .logo{
+font-size:48px;
+font-weight:800;
+background:linear-gradient(
+90deg,
+#ffffff,
+#57f4e5,
+#00bfff,
+#ffffff
+);
 
-    font-size:48px;
-
-    font-weight:800;
-
-    background:linear-gradient(
-    90deg,
-    #ffffff,
-    #57f4e5,
-    #00bfff,
-    #ffffff
-    );
-
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
-    background-size:300%;
-
-    animation:shine 5s linear infinite;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-size:300%;
+animation:shine 5s linear infinite;
 }
 
 @keyframes shine{
 
-    0%{
-        background-position:0%;
-    }
+0%{
+background-position:0%;
+}
 
-    100%{
-        background-position:300%;
-    }
+100%{
+background-position:300%;
+}
 
 }
 
 /* NAVIGATION */
 
 nav ul{
-
-    display:flex;
-
-    list-style:none;
-
-    gap:35px;
+display:flex;
+list-style:none;
+gap:35px;
 }
 
 nav ul li a{
-
-    text-decoration:none;
-
-    color:white;
-
-    font-size:20px;
-
-    font-weight:600;
-
-    transition:0.3s;
+text-decoration:none;
+color:white;
+font-size:20px;
+font-weight:600;
+transition:0.3s;
 }
 
 nav ul li a:hover{
-
-    color:#57f4e5;
+color:#57f4e5;
 }
 
 /* HERO */
 
 .hero{
-
-    width:100%;
-
-    background:black;
-
-    padding-top:20px;
-
-    padding-bottom:0px;
-
-    text-align:center;
-
-    overflow:hidden;
+width:100%;
+background:black;
+padding-top:20px;
+text-align:center;
+overflow:hidden;
 }
 
 .hero-container{
-
-    width:100%;
+width:100%;
 }
 
 .hero-image{
-
-    width:100vw;
-
-    height:auto;
-
-    display:block;
-
-    margin:0;
-
-    object-fit:cover;
+width:100vw;
+height:auto;
+display:block;
+object-fit:cover;
 }
 
 /* HERO TEXT */
 
 .hero-text{
-
-    font-size:48px;
-
-    font-weight:800;
-
-    letter-spacing:8px;
-
-    color:white;
-
-    margin-top:15px;
-
-    margin-bottom:20px;
-
-    text-align:center;
-
-    text-transform:uppercase;
-
-    text-shadow:0 0 12px rgba(87,244,229,0.5);
+font-size:48px;
+font-weight:800;
+letter-spacing:8px;
+color:white;
+margin-top:15px;
+margin-bottom:20px;
+text-align:center;
+text-transform:uppercase;
+text-shadow:0 0 12px rgba(87,244,229,0.5);
 }
 
-/* GET QUOTE BUTTON */
+/* BUTTON */
 
 .quote-btn{
-
-    display:inline-block;
-
-    margin-top:10px;
-
-    background:#57f4e5;
-
-    color:black;
-
-    padding:15px 40px;
-
-    text-decoration:none;
-
-    font-size:22px;
-
-    font-weight:700;
-
-    border-radius:50px;
-
-    transition:0.3s;
+display:inline-block;
+margin-top:10px;
+background:#57f4e5;
+color:black;
+padding:15px 40px;
+text-decoration:none;
+font-size:22px;
+font-weight:700;
+border-radius:50px;
+transition:0.3s;
 }
 
 .quote-btn:hover{
-
-    transform:scale(1.05);
-
-    background:white;
+transform:scale(1.05);
+background:white;
 }
 
 /* SECTION */
 
 .section{
-
-    width:90%;
-
-    margin:auto;
-
-    padding:100px 0;
+width:90%;
+margin:auto;
+padding:100px 0;
 }
 
 .section h2{
-
-    font-size:60px;
-
-    color:#57f4e5;
-
-    margin-bottom:50px;
-
-    text-align:center;
+font-size:60px;
+color:#57f4e5;
+margin-bottom:50px;
+text-align:center;
 }
 
 /* SERVICES */
 
 .services-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-    gap:35px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
 }
 
 .service-card{
-
-    background:rgba(255,255,255,0.08);
-
-    border:1px solid rgba(255,255,255,0.12);
-
-    border-radius:25px;
-
-    overflow:hidden;
-
-    transition:0.3s;
-
-    backdrop-filter:blur(8px);
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.12);
+border-radius:25px;
+overflow:hidden;
+transition:0.3s;
+backdrop-filter:blur(8px);
 }
 
 .service-card:hover{
-
-    transform:translateY(-8px);
+transform:translateY(-8px);
 }
 
-/* SERVICE IMAGE */
-
 .service-image{
-
-    width:100%;
-
-    height:320px;
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-repeat:no-repeat;
+width:100%;
+height:320px;
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
 }
 
 .service-content{
-
-    padding:30px;
+padding:30px;
 }
 
 .service-content h3{
-
-    font-size:30px;
-
-    margin-bottom:15px;
-
-    color:#57f4e5;
+font-size:30px;
+margin-bottom:15px;
+color:#57f4e5;
 }
 
 .service-content p{
-
-    font-size:18px;
-
-    line-height:1.8;
-
-    color:#e0e0e0;
+font-size:18px;
+line-height:1.8;
+color:#e0e0e0;
 }
 
 /* PROJECTS */
 
 .projects-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-    gap:35px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
 }
 
 .project-card{
-
-    min-height:320px;
-
-    border-radius:25px;
-
-    overflow:hidden;
-
-    display:flex;
-
-    align-items:end;
-
-    padding:30px;
-
-    background-size:cover;
-
-    background-position:center;
-
-    border:1px solid rgba(255,255,255,0.12);
-
-    transition:0.3s;
+min-height:320px;
+border-radius:25px;
+overflow:hidden;
+display:flex;
+align-items:end;
+padding:30px;
+background-size:cover;
+background-position:center;
+border:1px solid rgba(255,255,255,0.12);
+transition:0.3s;
 }
 
 .project-card:hover{
-
-    transform:translateY(-8px);
+transform:translateY(-8px);
 }
 
 .project-content h3{
-
-    font-size:34px;
-
-    margin-bottom:12px;
-
-    color:#57f4e5;
+font-size:34px;
+margin-bottom:12px;
+color:#57f4e5;
 }
 
 .project-content p{
-
-    font-size:18px;
-
-    line-height:1.8;
+font-size:18px;
+line-height:1.8;
 }
 
 /* CONTACT */
 
 .contact{
-
-    text-align:center;
+text-align:center;
 }
 
 .contact p{
+font-size:28px;
+margin-bottom:18px;
+}
 
-    font-size:28px;
+/* REVIEWS */
 
-    margin-bottom:18px;
+.review-stars{
+color:#57f4e5;
+font-size:24px;
+margin-top:15px;
+}
+
+.review-input{
+width:100%;
+padding:18px;
+border:none;
+border-radius:12px;
+font-size:18px;
+margin-bottom:20px;
+outline:none;
+}
+
+.review-btn{
+background:#57f4e5;
+color:black;
+border:none;
+padding:14px 35px;
+font-size:18px;
+font-weight:700;
+border-radius:50px;
+cursor:pointer;
+}
+
+.delete-btn{
+margin-top:20px;
+background:red;
+color:white;
+border:none;
+padding:10px 25px;
+border-radius:30px;
+cursor:pointer;
+font-size:16px;
 }
 
 /* FOOTER */
 
 footer{
-
-    padding:40px;
-
-    text-align:center;
-
-    background:rgba(255,255,255,0.05);
-
-    font-size:18px;
+padding:40px;
+text-align:center;
+background:rgba(255,255,255,0.05);
+font-size:18px;
 }
 
 /* WHATSAPP */
 
 .whatsapp{
-
-    position:fixed;
-
-    right:20px;
-
-    bottom:20px;
-
-    width:58px;
-
-    height:58px;
-
-    background:#25D366;
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:9999;
-
-    box-shadow:0 0 18px rgba(0,0,0,0.4);
+position:fixed;
+right:20px;
+bottom:20px;
+width:58px;
+height:58px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
 }
 
 .whatsapp img{
-
-    width:30px;
+width:30px;
 }
 
 /* MOBILE */
 
 @media(max-width:900px){
 
-    nav{
+nav{
+flex-direction:column;
+gap:20px;
+}
 
-        flex-direction:column;
+nav ul{
+gap:18px;
+flex-wrap:wrap;
+justify-content:center;
+}
 
-        gap:20px;
-    }
+.logo{
+font-size:36px;
+}
 
-    nav ul{
+.section h2{
+font-size:42px;
+}
 
-        gap:18px;
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-    }
-
-    nav ul li a{
-
-        font-size:18px;
-    }
-
-    .logo{
-
-        font-size:36px;
-    }
-
-    .section h2{
-
-        font-size:42px;
-    }
-
-    .hero-image{
-
-        width:100vw;
-    }
-
-    .hero-text{
-
-        font-size:28px;
-
-        letter-spacing:4px;
-    }
+.hero-text{
+font-size:28px;
+letter-spacing:4px;
+}
 
 }
 
@@ -495,15 +383,11 @@ Aeroventx
 <ul>
 
 <li><a href="#home">Home</a></li>
-
 <li><a href="#services">Services</a></li>
-
 <li><a href="#projects">Projects</a></li>
-
 <li><a href="#contact">Contact</a></li>
-
+<li><a href="#reviews">Reviews</a></li>
 <li><a href="login.html">Login</a></li>
-
 <li><a href="register.html">Register</a></li>
 
 </ul>
@@ -541,93 +425,43 @@ Get Quote
 <div class="services-grid">
 
 <div class="service-card">
-
-<div class="service-image"
-style="background-image:url('autocad.jpeg');">
-</div>
-
+<div class="service-image" style="background-image:url('autocad.jpeg');"></div>
 <div class="service-content">
-
 <h3>Designed with AutoCAD Drawing</h3>
-
-<p>
-Professional HVAC and ducting layouts designed with accurate AutoCAD planning.
-</p>
-
+<p>Professional HVAC and ducting layouts designed with accurate AutoCAD planning.</p>
 </div>
-
 </div>
 
 <div class="service-card">
-
-<div class="service-image"
-style="background-image:url('centralac.jpeg');">
-</div>
-
+<div class="service-image" style="background-image:url('centralac.jpeg');"></div>
 <div class="service-content">
-
 <h3>Central AC Ducting</h3>
-
-<p>
-Premium central AC duct installation and airflow systems for commercial buildings.
-</p>
-
+<p>Premium central AC duct installation and airflow systems for commercial buildings.</p>
 </div>
-
 </div>
 
 <div class="service-card">
-
-<div class="service-image"
-style="background-image:url('kitchen.jpeg');">
-</div>
-
+<div class="service-image" style="background-image:url('kitchen.jpeg');"></div>
 <div class="service-content">
-
 <h3>Kitchen Ducting</h3>
-
-<p>
-Professional kitchen exhaust and airflow duct systems.
-</p>
-
+<p>Professional kitchen exhaust and airflow duct systems.</p>
 </div>
-
 </div>
 
 <div class="service-card">
-
-<div class="service-image"
-style="background-image:url('stove.jpeg');">
-</div>
-
+<div class="service-image" style="background-image:url('stove.jpeg');"></div>
 <div class="service-content">
-
 <h3>Stove Making</h3>
-
-<p>
-Custom stove fabrication and installation services.
-</p>
-
+<p>Custom stove fabrication and installation services.</p>
 </div>
-
 </div>
 
 <div class="service-card">
-
-<div class="service-image"
-style="background-image:url('blower.jpeg'); background-position:center;">
-</div>
-
+<div class="service-image" style="background-image:url('blower.jpeg');"></div>
 <div class="service-content">
-
 <h3>Blower Service</h3>
-
-<p>
-Professional blower installation, maintenance and airflow performance solutions for industrial and commercial systems.
-</p>
-
+<p>Professional blower installation and airflow performance solutions.</p>
 </div>
-
 </div>
 
 </div>
@@ -643,58 +477,37 @@ Professional blower installation, maintenance and airflow performance solutions 
 <div class="projects-grid">
 
 <div class="project-card"
-style="
-background-image:
-linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.82)),
-url('project1.jpeg')
-">
+style="background-image:
+linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)),
+url('project1.jpeg')">
 
 <div class="project-content">
-
 <h3>Commercial HVAC</h3>
-
-<p>
-Modern HVAC ducting and airflow systems for offices and industries.
-</p>
-
+<p>Modern HVAC ducting and airflow systems for industries.</p>
 </div>
 
 </div>
 
 <div class="project-card"
-style="
-background-image:
-linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.82)),
-url('project2.jpeg')
-">
+style="background-image:
+linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)),
+url('project2.jpeg')">
 
 <div class="project-content">
-
 <h3>Ventilation Setup</h3>
-
-<p>
-Industrial ventilation duct systems with premium airflow solutions.
-</p>
-
+<p>Industrial ventilation systems with premium airflow solutions.</p>
 </div>
 
 </div>
 
 <div class="project-card"
-style="
-background-image:
-linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.82)),
-url('project3.jpeg')
-">
+style="background-image:
+linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)),
+url('project3.jpeg')">
 
 <div class="project-content">
-
 <h3>Custom Exhaust</h3>
-
-<p>
-Custom-built exhaust systems for factories and commercial kitchens.
-</p>
-
+<p>Custom-built exhaust systems for factories and commercial kitchens.</p>
 </div>
 
 </div>
@@ -710,12 +523,62 @@ Custom-built exhaust systems for factories and commercial kitchens.
 <h2>Contact Us</h2>
 
 <p>Email: joshyandava@gmail.com</p>
-
 <p>Phone: +91 8499922671</p>
-
 <p>Director: Trimurtulu Yandava</p>
+<p>Address: Vijayawada, Andhra Pradesh</p>
 
-<p>Address: D.No.77-100/9A, Payakapuram, Vijayawada-15</p>
+</section>
+
+<!-- REVIEWS -->
+
+<section id="reviews" class="section">
+
+<h2>Reviews</h2>
+
+<div class="service-card" style="max-width:700px; margin:0 auto 50px auto;">
+
+<div class="service-content">
+
+<input
+id="reviewInput"
+class="review-input"
+type="text"
+placeholder="Write your review..."
+>
+
+<button
+onclick="addReview()"
+class="review-btn">
+Add Review
+</button>
+
+</div>
+
+</div>
+
+<div class="services-grid" id="reviewsContainer">
+
+<div class="service-card">
+
+<div class="service-content">
+
+<p>
+"Excellent service and professional installation. Highly satisfied with Aeroventx."
+</p>
+
+<div class="review-stars">
+★★★★★
+</div>
+
+<button onclick="deleteReview(this)" class="delete-btn">
+Delete
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
@@ -732,12 +595,67 @@ Custom-built exhaust systems for factories and commercial kitchens.
 <a
 class="whatsapp"
 href="https://wa.me/918499922671"
-target="_blank"
->
+target="_blank">
 
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 
 </a>
+
+<!-- SCRIPT -->
+
+<script>
+
+function addReview(){
+
+let input=document.getElementById('reviewInput');
+
+let reviewText=input.value.trim();
+
+if(reviewText===''){
+
+alert('Please write a review');
+
+return;
+
+}
+
+let reviewsContainer=document.getElementById('reviewsContainer');
+
+let reviewCard=document.createElement('div');
+
+reviewCard.className='service-card';
+
+reviewCard.innerHTML=`
+
+<div class="service-content">
+
+<p>"${reviewText}"</p>
+
+<div class="review-stars">
+★★★★★
+</div>
+
+<button onclick="deleteReview(this)" class="delete-btn">
+Delete
+</button>
+
+</div>
+
+`;
+
+reviewsContainer.prepend(reviewCard);
+
+input.value='';
+
+}
+
+function deleteReview(button){
+
+button.closest('.service-card').remove();
+
+}
+
+</script>
 
 </body>
 
