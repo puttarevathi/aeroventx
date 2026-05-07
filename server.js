@@ -7,16 +7,22 @@ const User = require("./User");
 
 const app = express();
 
-/* MIDDLEWARE */
+/* =========================
+   MIDDLEWARE
+========================= */
 
 app.use(cors());
 app.use(express.json());
 
-/* FRONTEND FILES */
+/* =========================
+   FRONTEND FILES
+========================= */
 
 app.use(express.static(__dirname));
 
-/* HOME PAGE */
+/* =========================
+   HOME PAGE
+========================= */
 
 app.get("/", (req, res) => {
 
@@ -24,13 +30,17 @@ res.sendFile(path.join(__dirname, "index.html"));
 
 });
 
-/* MONGODB */
+/* =========================
+   MONGODB ATLAS CONNECTION
+========================= */
 
 mongoose
-.connect("mongodb://127.0.0.1:27017/aeroventx")
+.connect(
+"mongodb+srv://puttarevathi517_db_user:YOUR_PASSWORD@cluster0.2xi5nzp.mongodb.net/aeroventx?retryWrites=true&w=majority&appName=Cluster0"
+)
 .then(() => {
 
-console.log("MongoDB Connected");
+console.log("MongoDB Atlas Connected");
 
 })
 .catch((err) => {
@@ -39,7 +49,9 @@ console.log(err);
 
 });
 
-/* REGISTER */
+/* =========================
+   REGISTER API
+========================= */
 
 app.post("/register", async (req, res) => {
 
@@ -72,7 +84,9 @@ message: "Registration Failed",
 
 });
 
-/* LOGIN */
+/* =========================
+   LOGIN API
+========================= */
 
 app.post("/login", async (req, res) => {
 
@@ -111,22 +125,41 @@ message: "Login Failed",
 
 });
 
-/* USERS */
+/* =========================
+   USERS API
+========================= */
 
 app.get("/users", async (req, res) => {
+
+try {
 
 const users = await User.find();
 
 res.json(users);
 
+} catch (error) {
+
+console.log(error);
+
+res.status(500).json({
+message: "Failed To Fetch Users",
 });
 
-/* SERVER */
+}
+
+});
+
+/* =========================
+   SERVER
+========================= */
 
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
 
+console.log("");
+console.log("====================================");
 console.log(`Server Running On Port : ${PORT}`);
+console.log("====================================");
 
 });
