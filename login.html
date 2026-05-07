@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-family:Arial;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.7)
+    ),
+    url('image.jpeg');
+
+    background-size:cover;
+
+    background-position:center;
+}
+
+.box{
+
+    width:420px;
+
+    background:rgba(0,0,0,0.75);
+
+    padding:40px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 0 25px rgba(0,191,255,0.3);
+}
+
+h1{
+
+    color:#57f4e5;
+
+    margin-bottom:25px;
+
+    font-size:40px;
+}
+
+input{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#222;
+
+    color:white;
+
+    font-size:16px;
+}
+
+input::placeholder{
+
+    color:#ccc;
+}
+
+button{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#57f4e5;
+
+    color:black;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+#msg{
+
+    margin-top:20px;
+
+    color:#57f4e5;
+
+    font-size:18px;
+}
+
+.register-link{
+
+    margin-top:20px;
+
+    color:white;
+}
+
+.register-link a{
+
+    color:#57f4e5;
+
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>Login</h1>
+
+<form id="loginForm">
+
+<input
+id="email"
+type="email"
+placeholder="Enter Email"
+required
+>
+
+<input
+id="password"
+type="password"
+placeholder="Enter Password"
+required
+>
+
+<button type="submit">
+
+Login
+
+</button>
+
+</form>
+
+<p id="msg"></p>
+
+<div class="register-link">
+
+Don't have an account?
+
+<a href="register.html">
+
+Register
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+document
+.getElementById("loginForm")
+
+.addEventListener("submit",
+
+async function(e){
+
+    e.preventDefault();
+
+    try{
+
+        const response = await fetch(
+
+        "http://localhost:3000/login",
+
+        {
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+
+                email:
+                document.getElementById("email").value,
+
+                password:
+                document.getElementById("password").value
+
+            })
+
+        });
+
+        const data =
+        await response.json();
+
+        document.getElementById("msg")
+        .innerHTML = data.message;
+
+    }
+
+    catch(error){
+
+        document.getElementById("msg")
+        .innerHTML =
+        "Server Error";
+
+    }
+
+});
+
+</script>
+
+</body>
+
+</html>
