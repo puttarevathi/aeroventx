@@ -14,13 +14,13 @@ app.use(express.json());
 
 /* FRONTEND */
 
-app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(express.static(path.join(__dirname, "frontend")));
 
 /* HOME PAGE */
 
 app.get("/", (req, res) => {
 
-res.sendFile(path.join(__dirname, "../frontend/index.html"));
+res.sendFile(path.join(__dirname, "frontend", "index.html"));
 
 });
 
@@ -127,9 +127,6 @@ const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
 
-console.log("");
-console.log("================================");
 console.log(`Server Running On Port : ${PORT}`);
-console.log("================================");
 
 });
