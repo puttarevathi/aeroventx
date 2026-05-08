@@ -33,10 +33,9 @@ res.sendFile(path.join(__dirname, "index.html"));
 /* =========================
    MONGODB ATLAS CONNECTION
 ========================= */
-
 mongoose
 .connect(
-"mongodb+srv://puttarevathi517_db_user:Revathi%40321@cluster0.2xi5nzp.mongodb.net/aeroventx?retryWrites=true&w=majority&appName=Cluster0"
+"mongodb+srv://puttarevathi517_db_user:Revathi%40321@cluster0.2xi5nzp.mongodb.net/aeroventx?retryWrites=true&w=majority"
 )
 .then(() => {
 
