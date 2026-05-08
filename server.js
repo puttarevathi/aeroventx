@@ -47,7 +47,6 @@ console.log("MongoDB Atlas Connected");
 console.log(err);
 
 });
-});
 
 /* =========================
    REGISTER API
