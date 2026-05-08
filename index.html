@@ -49,13 +49,11 @@ margin:auto;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:25px 0;
+padding:20px 0;
 }
 
-/* LOGO */
-
 .logo{
-font-size:48px;
+font-size:42px;
 font-weight:800;
 background:linear-gradient(
 90deg,
@@ -83,18 +81,17 @@ background-position:300%;
 
 }
 
-/* NAVIGATION */
-
 nav ul{
 display:flex;
 list-style:none;
-gap:35px;
+gap:28px;
+flex-wrap:wrap;
 }
 
 nav ul li a{
 text-decoration:none;
 color:white;
-font-size:20px;
+font-size:18px;
 font-weight:600;
 transition:0.3s;
 }
@@ -107,47 +104,33 @@ color:#57f4e5;
 
 .hero{
 width:100%;
-background:black;
 padding-top:20px;
 text-align:center;
 overflow:hidden;
 }
 
-.hero-container{
-width:100%;
-}
-
 .hero-image{
-width:100vw;
-height:auto;
+width:100%;
 display:block;
 object-fit:cover;
 }
 
-/* HERO TEXT */
-
 .hero-text{
-font-size:48px;
+font-size:38px;
 font-weight:800;
-letter-spacing:8px;
-color:white;
+letter-spacing:6px;
 margin-top:15px;
-margin-bottom:20px;
-text-align:center;
-text-transform:uppercase;
+margin-bottom:18px;
 text-shadow:0 0 12px rgba(87,244,229,0.5);
 }
 
-/* BUTTON */
-
 .quote-btn{
 display:inline-block;
-margin-top:10px;
 background:#57f4e5;
 color:black;
-padding:15px 40px;
+padding:13px 34px;
 text-decoration:none;
-font-size:22px;
+font-size:18px;
 font-weight:700;
 border-radius:50px;
 transition:0.3s;
@@ -163,13 +146,13 @@ background:white;
 .section{
 width:90%;
 margin:auto;
-padding:100px 0;
+padding:80px 0;
 }
 
 .section h2{
-font-size:60px;
+font-size:46px;
 color:#57f4e5;
-margin-bottom:50px;
+margin-bottom:40px;
 text-align:center;
 }
 
@@ -177,81 +160,155 @@ text-align:center;
 
 .services-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:35px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
 }
 
 .service-card{
 background:rgba(255,255,255,0.08);
 border:1px solid rgba(255,255,255,0.12);
-border-radius:25px;
+border-radius:22px;
 overflow:hidden;
 transition:0.3s;
 backdrop-filter:blur(8px);
 }
 
 .service-card:hover{
-transform:translateY(-8px);
+transform:translateY(-6px);
 }
 
 .service-image{
 width:100%;
-height:320px;
+height:220px;
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
 }
 
 .service-content{
-padding:30px;
+padding:22px;
 }
 
 .service-content h3{
-font-size:30px;
-margin-bottom:15px;
+font-size:24px;
+margin-bottom:10px;
 color:#57f4e5;
 }
 
 .service-content p{
-font-size:18px;
-line-height:1.8;
+font-size:15px;
+line-height:1.7;
 color:#e0e0e0;
+margin-bottom:18px;
+}
+
+.visit-btn{
+display:inline-block;
+background:#57f4e5;
+color:black;
+padding:10px 24px;
+border-radius:40px;
+text-decoration:none;
+font-size:15px;
+font-weight:700;
+transition:0.3s;
+}
+
+.visit-btn:hover{
+background:white;
+transform:scale(1.05);
+}
+
+/* GALLERY */
+
+.gallery-modal{
+display:none;
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+overflow-y:auto;
+z-index:99999;
+padding:40px 20px;
+}
+
+.gallery-container{
+max-width:800px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:30px;
+}
+
+.gallery-item{
+background:rgba(255,255,255,0.05);
+padding:18px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.gallery-item img{
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:18px;
+display:block;
+}
+
+.gallery-item h3{
+font-size:24px;
+color:#57f4e5;
+margin-top:18px;
+margin-bottom:10px;
+}
+
+.gallery-item p{
+font-size:16px;
+line-height:1.8;
+color:#ddd;
+}
+
+.close-gallery{
+position:fixed;
+top:15px;
+right:25px;
+font-size:55px;
+cursor:pointer;
+z-index:100000;
 }
 
 /* PROJECTS */
 
 .projects-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:35px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
 }
 
 .project-card{
-min-height:320px;
-border-radius:25px;
+min-height:260px;
+border-radius:22px;
 overflow:hidden;
 display:flex;
 align-items:end;
-padding:30px;
+padding:25px;
 background-size:cover;
 background-position:center;
 border:1px solid rgba(255,255,255,0.12);
-transition:0.3s;
-}
-
-.project-card:hover{
-transform:translateY(-8px);
 }
 
 .project-content h3{
-font-size:34px;
-margin-bottom:12px;
+font-size:28px;
+margin-bottom:10px;
 color:#57f4e5;
 }
 
 .project-content p{
-font-size:18px;
-line-height:1.8;
+font-size:16px;
+line-height:1.7;
 }
 
 /* CONTACT */
@@ -261,37 +318,106 @@ text-align:center;
 }
 
 .contact p{
-font-size:28px;
-margin-bottom:18px;
+font-size:22px;
+margin-bottom:15px;
 }
 
 /* REVIEWS */
 
-.review-stars{
-color:#57f4e5;
-font-size:24px;
-margin-top:15px;
+.review-box{
+max-width:700px;
+margin:auto;
+background:rgba(255,255,255,0.06);
+padding:30px;
+border-radius:25px;
+border:1px solid rgba(255,255,255,0.08);
+margin-bottom:40px;
+backdrop-filter:blur(8px);
 }
 
-.review-input{
+.review-input,
+.review-textarea{
 width:100%;
-padding:18px;
-border:none;
-border-radius:12px;
-font-size:18px;
+padding:16px;
 margin-bottom:20px;
+border:none;
+border-radius:15px;
+font-size:16px;
 outline:none;
+font-family:'Poppins',sans-serif;
+background:white;
+color:black;
 }
 
-.review-btn{
+.review-textarea{
+height:140px;
+resize:none;
+}
+
+.star-rating{
+display:flex;
+gap:10px;
+margin-bottom:25px;
+font-size:38px;
+cursor:pointer;
+}
+
+.star-rating span{
+color:#555;
+transition:0.3s;
+}
+
+.star-rating span.active{
+color:#57f4e5;
+text-shadow:0 0 10px rgba(87,244,229,0.8);
+}
+
+.submit-review-btn{
 background:#57f4e5;
 color:black;
 border:none;
-padding:14px 35px;
-font-size:18px;
+padding:14px 32px;
+font-size:16px;
 font-weight:700;
 border-radius:50px;
 cursor:pointer;
+transition:0.3s;
+}
+
+.submit-review-btn:hover{
+background:white;
+transform:scale(1.05);
+}
+
+.reviews-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.review-card{
+background:rgba(255,255,255,0.06);
+padding:25px;
+border-radius:22px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.review-card h3{
+font-size:22px;
+margin-bottom:12px;
+color:#57f4e5;
+}
+
+.review-stars{
+font-size:24px;
+color:#57f4e5;
+margin-bottom:15px;
+}
+
+.review-card p{
+font-size:15px;
+line-height:1.8;
+color:#ddd;
 }
 
 .delete-btn{
@@ -299,69 +425,19 @@ margin-top:20px;
 background:red;
 color:white;
 border:none;
-padding:10px 25px;
+padding:10px 20px;
 border-radius:30px;
+font-weight:700;
 cursor:pointer;
-font-size:16px;
 }
 
 /* FOOTER */
 
 footer{
-padding:40px;
+padding:35px;
 text-align:center;
 background:rgba(255,255,255,0.05);
-font-size:18px;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-right:20px;
-bottom:20px;
-width:58px;
-height:58px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
-
-.whatsapp img{
-width:30px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-nav{
-flex-direction:column;
-gap:20px;
-}
-
-nav ul{
-gap:18px;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.logo{
-font-size:36px;
-}
-
-.section h2{
-font-size:42px;
-}
-
-.hero-text{
-font-size:28px;
-letter-spacing:4px;
-}
-
+font-size:16px;
 }
 
 </style>
@@ -369,8 +445,6 @@ letter-spacing:4px;
 </head>
 
 <body>
-
-<!-- HEADER -->
 
 <header>
 
@@ -400,8 +474,6 @@ Aeroventx
 
 <section id="home" class="hero">
 
-<div class="hero-container">
-
 <img src="image.jpeg" class="hero-image">
 
 <p class="hero-text">
@@ -411,8 +483,6 @@ SMART AIRFLOW SOLUTIONS
 <a href="register.html" class="quote-btn">
 Get Quote
 </a>
-
-</div>
 
 </section>
 
@@ -424,49 +494,274 @@ Get Quote
 
 <div class="services-grid">
 
+<!-- AUTOCAD -->
+
 <div class="service-card">
-<div class="service-image" style="background-image:url('autocad.jpeg');"></div>
+
+<div class="service-image"
+style="background-image:url('autocad1.jpeg');">
+</div>
+
 <div class="service-content">
+
 <h3>Designed with AutoCAD Drawing</h3>
-<p>Professional HVAC and ducting layouts designed with accurate AutoCAD planning.</p>
-</div>
+
+<p>
+Professional HVAC and ducting layouts designed with accurate AutoCAD planning.
+</p>
+
+<a href="javascript:void(0)"
+class="visit-btn"
+
+onclick='openGallery([
+{
+img:"autocad1.jpeg",
+title:"HVAC Layout Design",
+text:"Modern HVAC duct layout created using precise AutoCAD engineering."
+},
+{
+img:"autocad2.jpeg",
+title:"Airflow Planning",
+text:"Professional airflow routing for commercial ventilation systems."
+},
+{
+img:"autocad3.jpeg",
+title:"Industrial Drafting",
+text:"Accurate industrial ducting blueprint with optimized airflow."
+},
+{
+img:"autocad4.jpeg",
+title:"Ventilation Structure",
+text:"Detailed ventilation structure planning for factories."
+}
+])'>
+
+Visit
+
+</a>
+
 </div>
 
+</div>
+
+<!-- CENTRAL -->
+
 <div class="service-card">
-<div class="service-image" style="background-image:url('centralac.jpeg');"></div>
+
+<div class="service-image"
+style="background-image:url('central1.jpeg');">
+</div>
+
 <div class="service-content">
+
 <h3>Central AC Ducting</h3>
-<p>Premium central AC duct installation and airflow systems for commercial buildings.</p>
-</div>
+
+<p>
+Premium central AC duct installation and airflow systems.
+</p>
+
+<a href="javascript:void(0)"
+class="visit-btn"
+
+onclick='openGallery([
+{
+img:"central1.jpeg",
+title:"Cooling Ventilation",
+text:"Commercial cooling airflow installation system."
+},
+{
+img:"central2.jpeg",
+title:"AC Duct System",
+text:"Premium duct airflow setup for buildings."
+},
+{
+img:"central3.jpeg",
+title:"HVAC Cooling",
+text:"Professional HVAC cooling ventilation project."
+},
+{
+img:"central4.jpeg",
+title:"Ventilation Network",
+text:"Efficient airflow circulation engineering."
+}
+])'>
+
+Visit
+
+</a>
+
 </div>
 
+</div>
+
+<!-- KITCHEN -->
+
 <div class="service-card">
-<div class="service-image" style="background-image:url('kitchen.jpeg');"></div>
+
+<div class="service-image"
+style="background-image:url('kitchen1.jpeg');">
+</div>
+
 <div class="service-content">
+
 <h3>Kitchen Ducting</h3>
-<p>Professional kitchen exhaust and airflow duct systems.</p>
-</div>
+
+<p>
+Professional kitchen exhaust and airflow duct systems.
+</p>
+
+<a href="javascript:void(0)"
+class="visit-btn"
+
+onclick='openGallery([
+{
+img:"kitchen1.jpeg",
+title:"Kitchen Exhaust",
+text:"Commercial kitchen exhaust airflow setup."
+},
+{
+img:"kitchen2.jpeg",
+title:"Smoke Ventilation",
+text:"Modern smoke ventilation duct system."
+},
+{
+img:"kitchen3.jpeg",
+title:"Airflow Engineering",
+text:"Professional kitchen airflow engineering."
+},
+{
+img:"kitchen4.jpeg",
+title:"Heat Control",
+text:"Efficient heat removal ventilation systems."
+}
+])'>
+
+Visit
+
+</a>
+
 </div>
 
+</div>
+
+<!-- STOVE -->
+
 <div class="service-card">
-<div class="service-image" style="background-image:url('stove.jpeg');"></div>
+
+<div class="service-image"
+style="background-image:url('stove1.jpeg');">
+</div>
+
 <div class="service-content">
+
 <h3>Stove Making</h3>
-<p>Custom stove fabrication and installation services.</p>
-</div>
+
+<p>
+Custom stove fabrication and installation services.
+</p>
+
+<a href="javascript:void(0)"
+class="visit-btn"
+
+onclick='openGallery([
+{
+img:"stove1.jpeg",
+title:"Commercial Stove",
+text:"Professional commercial stove manufacturing."
+},
+{
+img:"stove2.jpeg",
+title:"Industrial Cooking",
+text:"Heavy-duty industrial cooking setup."
+},
+{
+img:"stove3.jpeg",
+title:"Steel Fabrication",
+text:"Premium stainless steel stove fabrication."
+},
+{
+img:"stove4.jpeg",
+title:"Kitchen Equipment",
+text:"Professional kitchen equipment installation."
+}
+])'>
+
+Visit
+
+</a>
+
 </div>
 
-<div class="service-card">
-<div class="service-image" style="background-image:url('blower.jpeg');"></div>
-<div class="service-content">
-<h3>Blower Service</h3>
-<p>Professional blower installation and airflow performance solutions.</p>
 </div>
+
+<!-- BLOWER -->
+
+<div class="service-card">
+
+<div class="service-image"
+style="background-image:url('blower1.jpeg');">
+</div>
+
+<div class="service-content">
+
+<h3>Industrial Blower Service</h3>
+
+<p>
+Professional industrial blower installation and airflow solutions.
+</p>
+
+<a href="javascript:void(0)"
+class="visit-btn"
+
+onclick='openGallery([
+{
+img:"blower1.jpeg",
+title:"Industrial Airflow",
+text:"Heavy-duty industrial airflow systems."
+},
+{
+img:"blower2.jpeg",
+title:"Ventilation Power",
+text:"High-performance ventilation engineering."
+},
+{
+img:"blower3.jpeg",
+title:"Air Circulation",
+text:"Efficient industrial air circulation technology."
+},
+{
+img:"blower4.jpeg",
+title:"Factory Ventilation",
+text:"Professional factory ventilation systems."
+}
+])'>
+
+Visit
+
+</a>
+
+</div>
+
 </div>
 
 </div>
 
 </section>
+
+<!-- GALLERY -->
+
+<div id="galleryModal" class="gallery-modal">
+
+<span class="close-gallery"
+onclick="closeGallery()">
+&times;
+</span>
+
+<div id="galleryContainer"
+class="gallery-container">
+</div>
+
+</div>
 
 <!-- PROJECTS -->
 
@@ -479,11 +774,16 @@ Get Quote
 <div class="project-card"
 style="background-image:
 linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)),
-url('project1.jpeg')">
+url('project1.jpeg');">
 
 <div class="project-content">
+
 <h3>Commercial HVAC</h3>
-<p>Modern HVAC ducting and airflow systems for industries.</p>
+
+<p>
+Modern HVAC ducting and airflow systems for commercial buildings.
+</p>
+
 </div>
 
 </div>
@@ -491,11 +791,16 @@ url('project1.jpeg')">
 <div class="project-card"
 style="background-image:
 linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)),
-url('project2.jpeg')">
+url('project2.jpeg');">
 
 <div class="project-content">
+
 <h3>Ventilation Setup</h3>
-<p>Industrial ventilation systems with premium airflow solutions.</p>
+
+<p>
+Industrial ventilation airflow solutions with premium engineering.
+</p>
+
 </div>
 
 </div>
@@ -503,11 +808,16 @@ url('project2.jpeg')">
 <div class="project-card"
 style="background-image:
 linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)),
-url('project3.jpeg')">
+url('project3.jpeg');">
 
 <div class="project-content">
-<h3>Custom Exhaust</h3>
-<p>Custom-built exhaust systems for factories and commercial kitchens.</p>
+
+<h3>Custom Exhaust Systems</h3>
+
+<p>
+Custom-built exhaust and duct systems for industries and kitchens.
+</p>
+
 </div>
 
 </div>
@@ -533,48 +843,61 @@ url('project3.jpeg')">
 
 <section id="reviews" class="section">
 
-<h2>Reviews</h2>
+<h2>Customer Reviews</h2>
 
-<div class="service-card" style="max-width:700px; margin:0 auto 50px auto;">
+<div class="review-box">
 
-<div class="service-content">
+<input type="text"
+id="customerName"
+placeholder="Your Name"
+class="review-input">
 
-<input
-id="reviewInput"
-class="review-input"
-type="text"
+<textarea
+id="customerReview"
 placeholder="Write your review..."
->
+class="review-textarea"></textarea>
+
+<div class="star-rating" id="starRating">
+
+<span onclick="setRating(1)">★</span>
+<span onclick="setRating(2)">★</span>
+<span onclick="setRating(3)">★</span>
+<span onclick="setRating(4)">★</span>
+<span onclick="setRating(5)">★</span>
+
+</div>
 
 <button
-onclick="addReview()"
-class="review-btn">
-Add Review
+class="submit-review-btn"
+onclick="addReview()">
+
+Submit Review
+
 </button>
 
 </div>
 
-</div>
+<div id="reviewsContainer" class="reviews-grid">
 
-<div class="services-grid" id="reviewsContainer">
+<div class="review-card">
 
-<div class="service-card">
-
-<div class="service-content">
-
-<p>
-"Excellent service and professional installation. Highly satisfied with Aeroventx."
-</p>
+<h3>Rahul Kumar</h3>
 
 <div class="review-stars">
 ★★★★★
 </div>
 
-<button onclick="deleteReview(this)" class="delete-btn">
-Delete
-</button>
+<p>
+Excellent airflow installation and professional service.
+</p>
 
-</div>
+<button
+onclick="deleteReview(this)"
+class="delete-btn">
+
+Delete
+
+</button>
 
 </div>
 
@@ -582,76 +905,148 @@ Delete
 
 </section>
 
-<!-- FOOTER -->
-
 <footer>
 
 © 2026 Aeroventx. All rights reserved.
 
 </footer>
 
-<!-- WHATSAPP -->
-
-<a
-class="whatsapp"
-href="https://wa.me/918499922671"
-target="_blank">
-
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-
-</a>
-
-<!-- SCRIPT -->
-
 <script>
+
+function openGallery(items){
+
+const modal=document.getElementById('galleryModal');
+
+const container=document.getElementById('galleryContainer');
+
+container.innerHTML='';
+
+items.forEach(function(item){
+
+let div=document.createElement('div');
+
+div.className='gallery-item';
+
+div.innerHTML=`
+<img 
+src="${item.img}"
+style="
+width:100%;
+height:350px;
+border-radius:18px;
+display:block;
+object-fit:cover;
+object-position:center;
+transform:${item.img.includes('stove') ? 'scale(0.96)' : 'scale(1)'};
+transition:0.3s ease;
+">
+<h3>${item.title}</h3>
+
+<p>${item.text}</p>
+
+`;
+
+container.appendChild(div);
+
+});
+
+modal.style.display='block';
+
+}
+
+function closeGallery(){
+
+document.getElementById('galleryModal').style.display='none';
+
+window.location.href="#home";
+
+}
+
+let selectedRating=0;
+
+function setRating(rating){
+
+selectedRating=rating;
+
+const stars=document.querySelectorAll('#starRating span');
+
+stars.forEach((star,index)=>{
+
+if(index<rating){
+star.classList.add('active');
+}else{
+star.classList.remove('active');
+}
+
+});
+
+}
 
 function addReview(){
 
-let input=document.getElementById('reviewInput');
+const name=document.getElementById('customerName').value.trim();
 
-let reviewText=input.value.trim();
+const review=document.getElementById('customerReview').value.trim();
 
-if(reviewText===''){
+if(name==='' || review==='' || selectedRating===0){
 
-alert('Please write a review');
+alert('Please fill all fields and select rating');
 
 return;
 
 }
 
-let reviewsContainer=document.getElementById('reviewsContainer');
+const reviewsContainer=document.getElementById('reviewsContainer');
 
-let reviewCard=document.createElement('div');
+let stars='';
 
-reviewCard.className='service-card';
+for(let i=0;i<selectedRating;i++){
+stars+='★';
+}
+
+const reviewCard=document.createElement('div');
+
+reviewCard.className='review-card';
 
 reviewCard.innerHTML=`
 
-<div class="service-content">
-
-<p>"${reviewText}"</p>
+<h3>${name}</h3>
 
 <div class="review-stars">
-★★★★★
+${stars}
 </div>
 
-<button onclick="deleteReview(this)" class="delete-btn">
+<p>
+${review}
+</p>
+
+<button
+onclick="deleteReview(this)"
+class="delete-btn">
+
 Delete
-</button>
 
-</div>
+</button>
 
 `;
 
 reviewsContainer.prepend(reviewCard);
 
-input.value='';
+document.getElementById('customerName').value='';
+
+document.getElementById('customerReview').value='';
+
+selectedRating=0;
+
+document.querySelectorAll('#starRating span').forEach(star=>{
+star.classList.remove('active');
+});
 
 }
 
 function deleteReview(button){
 
-button.closest('.service-card').remove();
+button.closest('.review-card').remove();
 
 }
 
