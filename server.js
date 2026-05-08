@@ -35,7 +35,7 @@ res.sendFile(path.join(__dirname, "index.html"));
 ========================= */
 mongoose
 .connect(
-"mongodb+srv://puttarevathi517_db_user:Revathi%40321@cluster0.2xi5nzp.mongodb.net/aeroventx?retryWrites=true&w=majority"
+"mongodb+srv://puttarevathi517_db_user:Revathi%40321@cluster0.2xi5nzp.mongodb.net/aeroventx?retryWrites=true&w=majority&appName=Cluster0"
 )
 .then(() => {
 
@@ -46,6 +46,7 @@ console.log("MongoDB Atlas Connected");
 
 console.log(err);
 
+});
 });
 
 /* =========================
