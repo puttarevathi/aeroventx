@@ -243,6 +243,104 @@ message:"Failed"
 /* =========================
    SERVER
 ========================= */
+/* =========================
+   ADD REVIEW API
+========================= */
+
+app.post(
+"/add-review",
+upload.single("image"),
+async(req,res)=>{
+
+try{
+
+const { name, review, rating } = req.body;
+
+const image = req.file
+? req.file.filename
+: "";
+
+const newReview = new Review({
+
+name,
+review,
+rating,
+image
+
+});
+
+await newReview.save();
+
+res.json({
+message:"Review Added Successfully"
+});
+
+}catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Failed To Add Review"
+});
+
+}
+
+});
+
+/* =========================
+   GET REVIEWS API
+========================= */
+
+app.get("/reviews",async(req,res)=>{
+
+try{
+
+const reviews =
+await Review.find().sort({_id:-1});
+
+res.json(reviews);
+
+}catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Failed To Fetch Reviews"
+});
+
+}
+
+});
+
+/* =========================
+   DELETE REVIEW API
+========================= */
+
+app.delete(
+"/delete-review/:id",
+async(req,res)=>{
+
+try{
+
+await Review.findByIdAndDelete(
+req.params.id
+);
+
+res.json({
+message:"Review Deleted"
+});
+
+}catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Delete Failed"
+});
+
+}
+
+});
 
 const PORT = process.env.PORT || 3000;
 
