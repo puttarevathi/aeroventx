@@ -224,7 +224,9 @@ app.get("/reviews", async (req,res)=>{
 
 try{
 
-const reviews = await Review.find();
+const reviews = await Review.find({
+approved:true
+});
 
 res.json(reviews);
 
