@@ -377,10 +377,10 @@ message:"Delete Failed"
 ========================= */
 
 const ADMIN_EMAIL =
-"admin@aeroventx.com";
+"joshyandava@gmail.com";
 
 const ADMIN_PASSWORD =
-"admin123";
+"Yandava@123";
 
 const JWT_SECRET =
 "aeroventx_secret_key";
