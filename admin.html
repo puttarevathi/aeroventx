@@ -98,6 +98,8 @@ Logout
 
 <hr>
 
+<!-- ADD SERVICE -->
+
 <h1>Add Service</h1>
 
 <input
@@ -122,6 +124,35 @@ Add Service
 </button>
 
 <hr>
+
+<!-- ADD PROJECT -->
+
+<h1>Add Project</h1>
+
+<input
+type="text"
+id="projectTitle"
+placeholder="Project Title">
+
+<textarea
+id="projectDescription"
+placeholder="Project Description"></textarea>
+
+<input
+type="file"
+id="projectImage">
+
+<button
+class="approve-btn"
+onclick="addProject()">
+
+Add Project
+
+</button>
+
+<hr>
+
+<!-- PENDING REVIEWS -->
 
 <h1>Pending Reviews</h1>
 
@@ -264,6 +295,54 @@ document.getElementById("serviceImage").value = "";
 console.log(error);
 
 alert("Failed To Add Service");
+
+}
+
+}
+
+/* ADD PROJECT */
+
+async function addProject(){
+
+const title =
+document.getElementById("projectTitle").value;
+
+const description =
+document.getElementById("projectDescription").value;
+
+const image =
+document.getElementById("projectImage").files[0];
+
+const formData = new FormData();
+
+formData.append("title",title);
+
+formData.append("description",description);
+
+formData.append("image",image);
+
+try{
+
+await fetch(
+"https://aeroventx.onrender.com/add-project",
+{
+method:"POST",
+body:formData
+});
+
+alert("Project Added Successfully");
+
+document.getElementById("projectTitle").value = "";
+
+document.getElementById("projectDescription").value = "";
+
+document.getElementById("projectImage").value = "";
+
+}catch(error){
+
+console.log(error);
+
+alert("Failed To Add Project");
 
 }
 
