@@ -8,6 +8,7 @@ const jwt = require("jsonwebtoken");
 const User = require("./User");
 const Review = require("./Review");
 const Service = require("./Service");
+const Project = require("./Project");
 
 const app = express();
 
@@ -511,6 +512,95 @@ req.params.id
 
 res.json({
 message:"Deleted"
+});
+
+}catch(error){
+
+console.log(error);
+
+}
+
+});
+/* =========================
+   ADD PROJECT API
+========================= */
+
+app.post(
+"/add-project",
+upload.single("image"),
+async(req,res)=>{
+
+try{
+
+const { title, description } = req.body;
+
+const image = req.file
+? req.file.filename
+: "";
+
+const newProject = new Project({
+
+title,
+description,
+image
+
+});
+
+await newProject.save();
+
+res.json({
+message:"Project Added"
+});
+
+}catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Failed To Add Project"
+});
+
+}
+
+});
+
+/* =========================
+   GET PROJECTS API
+========================= */
+
+app.get("/projects", async(req,res)=>{
+
+try{
+
+const projects =
+await Project.find().sort({_id:-1});
+
+res.json(projects);
+
+}catch(error){
+
+console.log(error);
+
+}
+
+});
+
+/* =========================
+   DELETE PROJECT API
+========================= */
+
+app.delete(
+"/delete-project/:id",
+async(req,res)=>{
+
+try{
+
+await Project.findByIdAndDelete(
+req.params.id
+);
+
+res.json({
+message:"Project Deleted"
 });
 
 }catch(error){
