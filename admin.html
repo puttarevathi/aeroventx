@@ -14,11 +14,16 @@ font-family:Poppins;
 padding:40px;
 }
 
+h1{
+margin-bottom:30px;
+}
+
 .review-card{
 background:#111;
 padding:20px;
 margin-bottom:20px;
 border-radius:20px;
+border:1px solid rgba(255,255,255,0.1);
 }
 
 button{
@@ -26,17 +31,25 @@ padding:10px 20px;
 border:none;
 border-radius:30px;
 margin-top:10px;
+margin-right:10px;
 cursor:pointer;
 font-weight:bold;
 }
 
 .approve-btn{
 background:#57f4e5;
+color:black;
 }
 
 .delete-btn{
 background:red;
 color:white;
+}
+
+.logout-btn{
+background:white;
+color:black;
+float:right;
 }
 
 img{
@@ -51,11 +64,26 @@ margin-top:15px;
 
 <body>
 
+<button
+class="logout-btn"
+onclick="logout()">
+
+Logout
+
+</button>
+
 <h1>Admin Review Approval</h1>
 
 <div id="reviewsContainer"></div>
 
 <script>
+
+if(!localStorage.getItem("adminToken")){
+
+window.location.href =
+"/admin-login.html";
+
+}
 
 async function loadPendingReviews(){
 
@@ -133,6 +161,17 @@ method:"DELETE"
 });
 
 loadPendingReviews();
+
+}
+
+function logout(){
+
+localStorage.removeItem(
+"adminToken"
+);
+
+window.location.href =
+"/admin-login.html";
 
 }
 
