@@ -176,76 +176,6 @@ message: "Failed To Fetch Users",
 });
 
 /* =========================
-   ADD REVIEW
-========================= */
-
-app.post(
-"/add-review",
-upload.single("image"),
-async (req,res)=>{
-
-try{
-
-const review = new Review({
-
-name:req.body.name,
-
-message:req.body.message,
-
-rating:req.body.rating,
-
-image:req.file ? req.file.filename : ""
-
-});
-
-await review.save();
-
-res.json({
-message:"Review Added"
-});
-
-}catch(error){
-
-console.log(error);
-
-res.status(500).json({
-message:"Failed"
-});
-
-}
-
-});
-
-/* =========================
-   GET REVIEWS
-========================= */
-
-app.get("/reviews", async (req,res)=>{
-
-try{
-
-const reviews = await Review.find({
-approved:true
-});
-
-res.json(reviews);
-
-}catch(error){
-
-console.log(error);
-
-res.status(500).json({
-message:"Failed"
-});
-
-}
-
-});
-
-/* =========================
-   SERVER
-========================= */
-/* =========================
    ADD REVIEW API
 ========================= */
 
@@ -290,15 +220,75 @@ message:"Failed To Add Review"
 });
 
 /* =========================
-   GET REVIEWS API
+   ADMIN REVIEWS API
 ========================= */
 
-app.get("/reviews",async(req,res)=>{
+app.get("/admin-reviews", async(req,res)=>{
 
 try{
 
 const reviews =
-await Review.find().sort({_id:-1});
+await Review.find({
+approved:false
+}).sort({_id:-1});
+
+res.json(reviews);
+
+}catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Failed To Fetch Admin Reviews"
+});
+
+}
+
+});
+
+/* =========================
+   APPROVE REVIEW API
+========================= */
+
+app.put("/approve-review/:id", async(req,res)=>{
+
+try{
+
+await Review.findByIdAndUpdate(
+req.params.id,
+{
+approved:true
+}
+);
+
+res.json({
+message:"Review Approved"
+});
+
+}catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Approval Failed"
+});
+
+}
+
+});
+
+/* =========================
+   GET REVIEWS API
+========================= */
+
+app.get("/reviews", async(req,res)=>{
+
+try{
+
+const reviews =
+await Review.find({
+approved:true
+}).sort({_id:-1});
 
 res.json(reviews);
 
@@ -343,6 +333,10 @@ message:"Delete Failed"
 }
 
 });
+
+/* =========================
+   SERVER
+========================= */
 
 const PORT = process.env.PORT || 3000;
 
