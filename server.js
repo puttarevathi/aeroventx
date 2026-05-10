@@ -337,7 +337,77 @@ message:"Delete Failed"
 /* =========================
    SERVER
 ========================= */
+/* ADMIN LOGIN */
 
+const bcrypt = require("bcryptjs");
+
+const jwt = require("jsonwebtoken");
+
+const ADMIN_EMAIL = "admin@aeroventx.com";
+
+/* HASHED PASSWORD:
+admin123
+*/
+
+const ADMIN_PASSWORD =
+"$2b$10$9X6j7H9WQ0A0v6Wj6KjL6e2gX8jR6GQ3n5x3Y3zR9Yx5V8Y5zW6nK";
+
+const JWT_SECRET =
+"aeroventx_secret_key";
+
+app.post("/admin-login", async(req,res)=>{
+
+try{
+
+const { email, password } = req.body;
+
+if(email !== ADMIN_EMAIL){
+
+return res.status(401).json({
+message:"Invalid Email"
+});
+
+}
+
+const isMatch =
+await bcrypt.compare(
+password,
+ADMIN_PASSWORD
+);
+
+if(!isMatch){
+
+return res.status(401).json({
+message:"Invalid Password"
+});
+
+}
+
+const token = jwt.sign(
+{
+admin:true
+},
+JWT_SECRET,
+{
+expiresIn:"7d"
+}
+);
+
+res.json({
+token
+});
+
+}catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Login Failed"
+});
+
+}
+
+});
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
