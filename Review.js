@@ -2,17 +2,20 @@ const mongoose = require("mongoose");
 
 const reviewSchema = new mongoose.Schema({
 
-    name:String,
+name:String,
 
-    message:String,
+review:String,
 
-    rating:Number,
+rating:Number,
 
-    image:String
+image:String,
+
+approved:{
+type:Boolean,
+default:false
+}
 
 });
 
-module.exports = mongoose.model(
-"Review",
-reviewSchema
-);
+module.exports =
+mongoose.model("Review",reviewSchema);
