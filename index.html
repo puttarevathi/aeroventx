@@ -441,6 +441,9 @@ font-size:16px;
 }
 
 </style>
+  <link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
@@ -1191,7 +1194,7 @@ loadReviews();
 <a href="tel:+918499922671"
 class="call-float">
 
-📞
+<i class="fa-solid fa-phone"></i>
 
 </a>
 
@@ -1312,7 +1315,7 @@ grid-template-columns:1fr;
 }
 
 }
-  .call-float{
+.call-float{
 
 position:fixed;
 
@@ -1326,11 +1329,7 @@ height:60px;
 
 border-radius:50%;
 
-background:rgba(255,255,255,0.08);
-
-backdrop-filter:blur(10px);
-
-border:1px solid rgba(255,255,255,0.15);
+background:#00e676;
 
 display:flex;
 
@@ -1338,19 +1337,29 @@ align-items:center;
 
 justify-content:center;
 
+text-decoration:none;
+
 z-index:9999;
 
-font-size:30px;
-
-color:#00e676;
-
-box-shadow:
-0 0 20px rgba(0,229,255,0.2);
+box-shadow:0 0 20px rgba(0,0,0,0.3);
 
 transition:0.3s;
 
 }
 
+.call-float i{
+
+font-size:24px;
+
+color:white;
+
+}
+
+.call-float:hover{
+
+transform:scale(1.1);
+
+}
 </style>
 
 </body>
