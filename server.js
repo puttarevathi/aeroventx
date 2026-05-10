@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
 const multer = require("multer");
+const jwt = require("jsonwebtoken");
 
 const User = require("./User");
 const Review = require("./Review");
@@ -38,6 +39,7 @@ app.use("/uploads",express.static("uploads"));
 ========================= */
 
 app.use(cors());
+
 app.use(express.json());
 
 /* =========================
@@ -60,16 +62,17 @@ res.sendFile(path.join(__dirname, "index.html"));
    MONGODB CONNECTION
 ========================= */
 
-mongoose
-.connect(
+mongoose.connect(
 "mongodb+srv://puttarevathi517_db_user:Revathi%40321@cluster0.2xi5nzp.mongodb.net/aeroventx?retryWrites=true&w=majority&appName=Cluster0"
 )
-.then(() => {
+
+.then(()=>{
 
 console.log("MongoDB Atlas Connected");
 
 })
-.catch((err) => {
+
+.catch((err)=>{
 
 console.log(err);
 
@@ -79,31 +82,37 @@ console.log(err);
    REGISTER API
 ========================= */
 
-app.post("/register", async (req, res) => {
+app.post("/register", async(req,res)=>{
 
-try {
+try{
 
 const { name, phone, email, password } = req.body;
 
 const user = new User({
+
 name,
 phone,
 email,
-password,
+password
+
 });
 
 await user.save();
 
 res.json({
-message: "Register Successfully",
+
+message:"Register Successfully"
+
 });
 
-} catch (error) {
+}catch(error){
 
 console.log(error);
 
 res.status(500).json({
-message: "Registration Failed",
+
+message:"Registration Failed"
+
 });
 
 }
@@ -114,37 +123,45 @@ message: "Registration Failed",
    LOGIN API
 ========================= */
 
-app.post("/login", async (req, res) => {
+app.post("/login", async(req,res)=>{
 
-try {
+try{
 
 const { email, password } = req.body;
 
 const user = await User.findOne({
+
 email,
-password,
+password
+
 });
 
-if (user) {
+if(user){
 
 res.json({
-message: "Login Successfully",
+
+message:"Login Successfully"
+
 });
 
-} else {
+}else{
 
 res.status(401).json({
-message: "Invalid Email or Password",
+
+message:"Invalid Email or Password"
+
 });
 
 }
 
-} catch (error) {
+}catch(error){
 
 console.log(error);
 
 res.status(500).json({
-message: "Login Failed",
+
+message:"Login Failed"
+
 });
 
 }
@@ -155,20 +172,22 @@ message: "Login Failed",
    USERS API
 ========================= */
 
-app.get("/users", async (req, res) => {
+app.get("/users", async(req,res)=>{
 
-try {
+try{
 
 const users = await User.find();
 
 res.json(users);
 
-} catch (error) {
+}catch(error){
 
 console.log(error);
 
 res.status(500).json({
-message: "Failed To Fetch Users",
+
+message:"Failed To Fetch Users"
+
 });
 
 }
@@ -197,14 +216,17 @@ const newReview = new Review({
 name,
 review,
 rating,
-image
+image,
+approved:false
 
 });
 
 await newReview.save();
 
 res.json({
+
 message:"Review Added Successfully"
+
 });
 
 }catch(error){
@@ -212,7 +234,9 @@ message:"Review Added Successfully"
 console.log(error);
 
 res.status(500).json({
+
 message:"Failed To Add Review"
+
 });
 
 }
@@ -239,7 +263,9 @@ res.json(reviews);
 console.log(error);
 
 res.status(500).json({
+
 message:"Failed To Fetch Admin Reviews"
+
 });
 
 }
@@ -262,7 +288,9 @@ approved:true
 );
 
 res.json({
+
 message:"Review Approved"
+
 });
 
 }catch(error){
@@ -270,7 +298,9 @@ message:"Review Approved"
 console.log(error);
 
 res.status(500).json({
+
 message:"Approval Failed"
+
 });
 
 }
@@ -297,7 +327,9 @@ res.json(reviews);
 console.log(error);
 
 res.status(500).json({
+
 message:"Failed To Fetch Reviews"
+
 });
 
 }
@@ -319,7 +351,9 @@ req.params.id
 );
 
 res.json({
+
 message:"Review Deleted"
+
 });
 
 }catch(error){
@@ -327,7 +361,9 @@ message:"Review Deleted"
 console.log(error);
 
 res.status(500).json({
+
 message:"Delete Failed"
+
 });
 
 }
@@ -335,22 +371,14 @@ message:"Delete Failed"
 });
 
 /* =========================
-   SERVER
+   ADMIN LOGIN
 ========================= */
-/* ADMIN LOGIN */
 
-const bcrypt = require("bcryptjs");
-
-const jwt = require("jsonwebtoken");
-
-const ADMIN_EMAIL = "admin@aeroventx.com";
-
-/* HASHED PASSWORD:
-admin123
-*/
+const ADMIN_EMAIL =
+"admin@aeroventx.com";
 
 const ADMIN_PASSWORD =
-"$2b$10$9X6j7H9WQ0A0v6Wj6KjL6e2gX8jR6GQ3n5x3Y3zR9Yx5V8Y5zW6nK";
+"admin123";
 
 const JWT_SECRET =
 "aeroventx_secret_key";
@@ -369,13 +397,7 @@ message:"Invalid Email"
 
 }
 
-const isMatch =
-await bcrypt.compare(
-password,
-ADMIN_PASSWORD
-);
-
-if(!isMatch){
+if(password !== ADMIN_PASSWORD){
 
 return res.status(401).json({
 message:"Invalid Password"
@@ -408,9 +430,14 @@ message:"Login Failed"
 }
 
 });
+
+/* =========================
+   SERVER
+========================= */
+
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+app.listen(PORT, ()=>{
 
 console.log("");
 console.log("====================================");
