@@ -15,7 +15,8 @@ padding:40px;
 }
 
 h1{
-margin-bottom:30px;
+margin-bottom:25px;
+margin-top:40px;
 }
 
 .review-card{
@@ -27,7 +28,7 @@ border:1px solid rgba(255,255,255,0.1);
 }
 
 button{
-padding:10px 20px;
+padding:12px 22px;
 border:none;
 border-radius:30px;
 margin-top:10px;
@@ -52,10 +53,31 @@ color:black;
 float:right;
 }
 
+input,
+textarea{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:none;
+border-radius:12px;
+background:#111;
+color:white;
+}
+
+textarea{
+height:120px;
+resize:none;
+}
+
 img{
 width:200px;
 border-radius:15px;
 margin-top:15px;
+}
+
+hr{
+margin:50px 0;
+border:1px solid rgba(255,255,255,0.1);
 }
 
 </style>
@@ -72,7 +94,36 @@ Logout
 
 </button>
 
-<h1>Admin Review Approval</h1>
+<h1>Admin Panel</h1>
+
+<hr>
+
+<h1>Add Service</h1>
+
+<input
+type="text"
+id="serviceTitle"
+placeholder="Service Title">
+
+<textarea
+id="serviceDescription"
+placeholder="Service Description"></textarea>
+
+<input
+type="file"
+id="serviceImage">
+
+<button
+class="approve-btn"
+onclick="addService()">
+
+Add Service
+
+</button>
+
+<hr>
+
+<h1>Pending Reviews</h1>
 
 <div id="reviewsContainer"></div>
 
@@ -84,6 +135,8 @@ window.location.href =
 "/admin-login.html";
 
 }
+
+/* LOAD PENDING REVIEWS */
 
 async function loadPendingReviews(){
 
@@ -140,6 +193,8 @@ Delete
 
 }
 
+/* APPROVE REVIEW */
+
 async function approveReview(id){
 
 await fetch(
@@ -151,6 +206,8 @@ method:"PUT"
 loadPendingReviews();
 
 }
+
+/* DELETE REVIEW */
 
 async function deleteReview(id){
 
@@ -164,6 +221,56 @@ loadPendingReviews();
 
 }
 
+/* ADD SERVICE */
+
+async function addService(){
+
+const title =
+document.getElementById("serviceTitle").value;
+
+const description =
+document.getElementById("serviceDescription").value;
+
+const image =
+document.getElementById("serviceImage").files[0];
+
+const formData = new FormData();
+
+formData.append("title",title);
+
+formData.append("description",description);
+
+formData.append("image",image);
+
+try{
+
+await fetch(
+"https://aeroventx.onrender.com/add-service",
+{
+method:"POST",
+body:formData
+});
+
+alert("Service Added Successfully");
+
+document.getElementById("serviceTitle").value = "";
+
+document.getElementById("serviceDescription").value = "";
+
+document.getElementById("serviceImage").value = "";
+
+}catch(error){
+
+console.log(error);
+
+alert("Failed To Add Service");
+
+}
+
+}
+
+/* LOGOUT */
+
 function logout(){
 
 localStorage.removeItem(
@@ -174,6 +281,8 @@ window.location.href =
 "/admin-login.html";
 
 }
+
+/* INITIAL LOAD */
 
 loadPendingReviews();
 
