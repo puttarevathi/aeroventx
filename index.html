@@ -142,6 +142,8 @@ background:white;
 }
   /* NAVBAR */
 
+/* NAVBAR */
+
 .navbar{
 
 position:absolute;
@@ -152,7 +154,7 @@ left:0;
 
 width:100%;
 
-padding:20px 40px;
+padding:15px 20px;
 
 display:flex;
 
@@ -164,11 +166,13 @@ background:transparent;
 
 z-index:9999;
 
+box-sizing:border-box;
+
 }
 
 .logo{
 
-font-size:32px;
+font-size:26px;
 
 font-weight:bold;
 
@@ -180,9 +184,15 @@ color:#00e5ff;
 
 display:flex;
 
-gap:30px;
+gap:18px;
 
 list-style:none;
+
+flex-wrap:wrap;
+
+justify-content:flex-end;
+
+max-width:65%;
 
 }
 
@@ -192,7 +202,7 @@ color:white;
 
 text-decoration:none;
 
-font-size:18px;
+font-size:16px;
 
 font-weight:600;
 
@@ -205,7 +215,6 @@ transition:0.3s;
 color:#00e5ff;
 
 }
-
 /* SECTION */
 
 .section{
@@ -540,7 +549,10 @@ Aeroventx
 
 <!-- HERO -->
 
-<section id="home" class="hero">
+<section
+id="home"
+class="hero"
+style="padding-top:220px;">
 
 <img src="image.jpeg" class="hero-image">
 
