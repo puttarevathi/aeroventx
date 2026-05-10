@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 
 const User = require("./User");
 const Review = require("./Review");
+const Service = require("./Service");
 
 const app = express();
 
@@ -430,7 +431,95 @@ message:"Login Failed"
 }
 
 });
+/* =========================
+   ADD SERVICE API
+========================= */
 
+app.post(
+"/add-service",
+upload.single("image"),
+async(req,res)=>{
+
+try{
+
+const { title, description } = req.body;
+
+const image = req.file
+? req.file.filename
+: "";
+
+const newService = new Service({
+
+title,
+description,
+image
+
+});
+
+await newService.save();
+
+res.json({
+message:"Service Added"
+});
+
+}catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Failed To Add Service"
+});
+
+}
+
+});
+
+/* =========================
+   GET SERVICES API
+========================= */
+
+app.get("/services", async(req,res)=>{
+
+try{
+
+const services =
+await Service.find().sort({_id:-1});
+
+res.json(services);
+
+}catch(error){
+
+console.log(error);
+
+}
+
+});
+
+/* =========================
+   DELETE SERVICE API
+========================= */
+
+app.delete(
+"/delete-service/:id",
+async(req,res)=>{
+
+try{
+
+await Service.findByIdAndDelete(
+req.params.id
+);
+
+res.json({
+message:"Deleted"
+});
+
+}catch(error){
+
+console.log(error);
+
+}
+
+});
 /* =========================
    SERVER
 ========================= */
