@@ -1186,7 +1186,14 @@ loadReviews();
 
 </script>
 
+<!-- CALL FLOATING BUTTON -->
 
+<a href="tel:+918499922671"
+class="call-float">
+
+☎
+
+</a>
 
 
 
@@ -1303,6 +1310,47 @@ font-size:16px;
 .about-features{
 grid-template-columns:1fr;
 }
+
+}
+  .call-float{
+
+position:fixed;
+
+right:25px;
+
+bottom:100px;
+
+width:60px;
+
+height:60px;
+
+background:#00e676;
+
+color:white;
+
+font-size:30px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-decoration:none;
+
+z-index:9999;
+
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+
+transition:0.3s;
+
+}
+
+.call-float:hover{
+
+transform:scale(1.1);
 
 }
 
