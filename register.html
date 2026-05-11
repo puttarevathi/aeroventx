@@ -127,17 +127,49 @@ async function registerUser(){
 
     document.getElementById("registerBtn").disabled = true;
 
-    const data = {
+const name =
+document.getElementById("name").value;
 
-        name: document.getElementById("name").value,
+const phone =
+document.getElementById("phone").value;
 
-        phone: document.getElementById("phone").value,
+const email =
+document.getElementById("email").value;
 
-        email: document.getElementById("email").value,
+const password =
+document.getElementById("password").value;
 
-        password: document.getElementById("password").value
-    };
 
+
+if(
+!email.endsWith("@gmail.com") &&
+!email.endsWith("@yahoo.com") &&
+!email.endsWith("@outlook.com")
+){
+
+alert("Only Gmail, Yahoo, and Outlook emails are allowed");
+
+document.getElementById("loading").style.display = "none";
+
+document.getElementById("registerBtn").disabled = false;
+
+return;
+
+}
+
+
+
+const data = {
+
+name: name,
+
+phone: phone,
+
+email: email,
+
+password: password
+
+};
     try{
 
         const response = await fetch(
