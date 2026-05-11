@@ -101,13 +101,35 @@
 
 async function login(){
 
-    const data = {
+const email =
+document.getElementById("email").value;
 
-        email: document.getElementById("email").value,
+const password =
+document.getElementById("password").value;
 
-        password: document.getElementById("password").value
-    };
 
+
+if(
+!email.endsWith("@gmail.com") &&
+!email.endsWith("@yahoo.com") &&
+!email.endsWith("@outlook.com")
+){
+
+alert("Only Gmail, Yahoo, and Outlook emails are allowed");
+
+return;
+
+}
+
+
+
+const data = {
+
+email: email,
+
+password: password
+
+};
     try{
 
         const response = await fetch(
