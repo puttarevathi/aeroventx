@@ -84,9 +84,11 @@ background-position:300%;
 
 .menu-toggle{
 
-font-size:34px;
+font-size:38px;
 color:white;
 cursor:pointer;
+position:relative;
+z-index:100000;
 display:block;
 
 }
@@ -1337,13 +1339,13 @@ function toggleMenu(){
 
 const menu = document.getElementById("menu");
 
-if(menu.style.right === "0px"){
+if(menu.style.display === "block"){
 
-menu.style.right = "-250px";
+menu.style.display = "none";
 
 }else{
 
-menu.style.right = "0px";
+menu.style.display = "block";
 
 }
 
