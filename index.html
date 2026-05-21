@@ -82,25 +82,52 @@ background-position:300%;
 
 }
 
-nav ul{
-display:flex;
-list-style:none;
-gap:28px;
-flex-wrap:wrap;
+.menu-toggle{
+
+font-size:34px;
+color:white;
+cursor:pointer;
+display:block;
+
 }
 
-nav ul li a{
-text-decoration:none;
+#menu{
+
+position:absolute;
+top:80px;
+right:20px;
+background:rgba(0,0,0,0.95);
+width:220px;
+padding:20px;
+border-radius:15px;
+display:none;
+flex-direction:column;
+gap:18px;
+list-style:none;
+z-index:99999;
+
+}
+
+#menu li{
+
+margin:10px 0;
+
+}
+
+#menu li a{
+
 color:white;
+text-decoration:none;
 font-size:18px;
 font-weight:600;
-transition:0.3s;
+
 }
 
-nav ul li a:hover{
+#menu li a:hover{
+
 color:#57f4e5;
-}
 
+}
 /* HERO */
 
 .hero{
@@ -543,13 +570,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 Aeroventx
 </div>
 
-<ul>
+<div class="menu-toggle" onclick="toggleMenu()">
+☰
+</div>
+
+<ul id="menu">
 
 <li><a href="#home">Home</a></li>
 <li><a href="#services">Services</a></li>
 <li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
+<li><a href="#about">About</a></li>
 <li><a href="#reviews">Reviews</a></li>
+<li><a href="#contact">Contact</a></li>
 <li><a href="login.html">Login</a></li>
 <li><a href="register.html">Register</a></li>
 
@@ -558,7 +590,6 @@ Aeroventx
 </nav>
 
 </header>
-
 <!-- HERO -->
 
 <section
@@ -1269,6 +1300,21 @@ alert("Delete Failed");
 }
 
 loadReviews();
+function toggleMenu(){
+
+const menu = document.getElementById("menu");
+
+if(menu.style.display === "flex"){
+
+menu.style.display = "none";
+
+}else{
+
+menu.style.display = "flex";
+
+}
+
+}
 
 </script>
 
