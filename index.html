@@ -1337,15 +1337,21 @@ function toggleMenu(){
 
 const menu = document.getElementById("menu");
 
-if(menu.style.display === "flex"){
+if(menu.style.right === "0px"){
 
-menu.style.display = "none";
+menu.style.right = "-250px";
 
 }else{
 
-menu.style.display = "flex";
+menu.style.right = "0px";
 
 }
+
+}
+
+function closeMenu(){
+
+document.getElementById("menu").style.right = "-250px";
 
 }
 
