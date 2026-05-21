@@ -1339,13 +1339,13 @@ function toggleMenu(){
 
 const menu = document.getElementById("menu");
 
-if(menu.style.display === "block"){
+if(menu.style.display === "flex"){
 
 menu.style.display = "none";
 
 }else{
 
-menu.style.display = "block";
+menu.style.display = "flex";
 
 }
 
@@ -1353,10 +1353,11 @@ menu.style.display = "block";
 
 function closeMenu(){
 
-document.getElementById("menu").style.right = "-250px";
+const menu = document.getElementById("menu");
+
+menu.style.display = "none";
 
 }
-
 </script>
 
 <!-- CALL FLOATING BUTTON -->
