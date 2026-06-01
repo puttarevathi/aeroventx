@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://aeroventx.onrender.com/sitemap.xml
-Host: aeroventx.onrender.com
+
